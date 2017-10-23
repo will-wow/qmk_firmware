@@ -21,18 +21,16 @@ extern keymap_config_t keymap_config;
 
 enum planck_layers {
   _QWERTY,
-  _NUM_PAD,
+  _NM,
   _LOWER,
   _RAISE,
-  _PLOVER,
   _ADJUST
 };
 
 enum planck_keycodes {
   QWERTY = SAFE_RANGE,
   LOWER,
-  RAISE,
-  NUM_PAD
+  RAISE
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -52,7 +50,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   {KC_TAB,  KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC},
   {KC_ESC,  KC_A,   KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT},
   {KC_LSFT, KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_ENT },
-  {KC_LCTL, NUM_PAD,KC_LALT, KC_LGUI, LOWER,   KC_SPC,  KC_SPC,  RAISE,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT}
+  {KC_LCTL, MO(_NM),KC_LALT, KC_LGUI, LOWER,   KC_SPC,  KC_SPC,  RAISE,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT}
 },
 
 /* Num (Lower + Raise)
@@ -63,14 +61,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * |      |      |      |      |      |      |      |  *   |   1  |  2   |   3  |  +   |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |QWERTY|      |      |      |             |      |   0  |  00  |   .  | Enter|
+ * |      |      |      |      |      |             |      |   0  |  00  |   .  | Enter|
  * `-----------------------------------------------------------------------------------'
  */
-[_NUM_PAD] = {
+[_NM] = {
   {KC_TAB,  _______, _______, _______, _______, _______, _______, KC_TAB,  KC_7,    KC_8,   KC_9,   KC_BSPC},
   {KC_ESC,  _______, _______, _______, KC_G,    _______, _______, KC_SLSH, KC_4,    KC_5,   KC_6,   KC_MINS},
-  {_______, _______, _______, _______, _______, _______, _______, KC_AMPR, KC_1,    KC_2,   KC_3,   KC_PLUS},
-  {_______, QWERTY,  _______, _______, _______, _______, _______, _______, KC_0,    KC_0,   KC_DOT, KC_ENT }
+  {_______, _______, _______, _______, _______, _______, _______, KC_ASTR, KC_1,    KC_2,   KC_3,   KC_PLUS},
+  {_______, MO(_NM),  _______, _______, _______, _______, _______, _______, KC_0,    KC_0,   KC_DOT, KC_ENT }
 },
 
 /* Lower
@@ -138,12 +136,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       return false;
       break;
-    case NUM_PAD:
-      if (record->event.pressed) {
-        set_single_persistent_default_layer(_NUM_PAD);
-      }
-      return false;
-      break;
+    // case NUM_PAD:
+    //   if (record->event.pressed) {
+    //     set_single_persistent_default_layer(_NUM_PAD);
+    //   }
+    //   return false;
+    //   break;
     case LOWER:
       if (record->event.pressed) {
         layer_on(_LOWER);
