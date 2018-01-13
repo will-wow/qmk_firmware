@@ -84,7 +84,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_LOWER] = {
   {KC_TILD, _______, KC_MS_U, _______, _______, _______, _______, KC_BTN1, KC_BTN3,    KC_BTN2,   _______,    KC_BSPC},
-  {_______, KC_MS_L, KC_MS_D, KC_MS_R, _______, _______, _______, KC_MINS, KC_EQL,     _______,   _______,    KC_BSLS},
+  {_______, KC_MS_L, KC_MS_D, KC_MS_R, KC_PLUS, _______, _______, KC_MINS, KC_EQL,     _______,   _______,    KC_BSLS},
   {_______, _______, KC_LBRC, KC_RBRC, _______, _______, _______, _______, S(KC_COMM), S(KC_DOT), S(KC_SLSH), _______},
   {_______, _______, _______, _______, _______, _______, _______, _______, KC_MNXT,    KC_VOLD,   KC_VOLU,    KC_MPLY}
 },
