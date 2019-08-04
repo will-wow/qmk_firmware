@@ -3,7 +3,7 @@
 commands for making:
 
 ```bash
-make planck-rev4-wow
+make planck/rev4:wow
 ```
 
 Commands for flashing:
