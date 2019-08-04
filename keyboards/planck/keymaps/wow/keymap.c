@@ -131,17 +131,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     case QWERTY:
       if (record->event.pressed) {
-        print("mode just switched to qwerty and this is a huge string\n");
         set_single_persistent_default_layer(_QWERTY);
       }
       return false;
       break;
-    // case NUM_PAD:
-    //   if (record->event.pressed) {
-    //     set_single_persistent_default_layer(_NUM_PAD);
-    //   }
-    //   return false;
-    //   break;
     case LOWER:
       if (record->event.pressed) {
         layer_on(_LOWER);
